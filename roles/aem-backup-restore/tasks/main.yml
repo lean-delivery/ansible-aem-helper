@@ -26,4 +26,8 @@
 
 - name: Put archive into Azure blog storage
   azure_rm_storageblob:
-    
+    auth_source: env
+    resource_group: '{{ azure_resource_group }}'
+    storage_account_name: '{{ azure_storage_account }}'
+    container: '{{ azure_container }}'
+    state: present

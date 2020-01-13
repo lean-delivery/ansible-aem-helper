@@ -9,7 +9,7 @@
     azure_blob_storage: true
     azure_resource_group: 'epm-ldi'
     azure_storage_account: 'storage_name'
-    container: 'backups'
+    azure_container: 'backups'
   environment:
     AZURE_SUBSCRIPTION_ID: 'xxxx'
     AZURE_CLIENT_ID: 'xxxx'
