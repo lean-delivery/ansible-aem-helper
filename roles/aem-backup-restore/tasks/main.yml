@@ -26,14 +26,15 @@
 
 - name: Install pip
   apt:
-    name: python-pip
+    name: python3-pip
     state: present
   become: true
 
 - name: Install azure cli
   pip:
     name: 'ansible[azure]'
-    executable: pip
+    executable: pip3
+  become: true
 
 - name: Put archive into Azure blog storage
   azure_rm_storageblob:
@@ -41,4 +42,6 @@
     resource_group: '{{ azure_resource_group }}'
     storage_account_name: '{{ azure_storage_account }}'
     container: '{{ azure_container }}'
+    blob: '{{ backup_name }}'
+    src: '{{ backup_path }}'
     state: present
