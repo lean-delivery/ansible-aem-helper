@@ -24,6 +24,15 @@
     aws_secret_key: '{{ aws_secret_access_key }}'
   when: aws_s3_storage
 
+- name: Install pip
+  package:
+    name: python-pip
+    state: present
+
+- name: Install azure cli
+  pip:
+    name: azure
+
 - name: Put archive into Azure blog storage
   azure_rm_storageblob:
     auth_source: env
