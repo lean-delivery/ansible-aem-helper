@@ -5,3 +5,11 @@
     method: POST
     user: '{{ aem_username }}'
     password: '{{ aem_password }}'
+
+- name: Check until backup is finished
+  stat:
+    path: '{{ backup_path }}'
+  register: stat_result
+  until: stat_result.stat.exists
+  retries: 300
+  delay: 20

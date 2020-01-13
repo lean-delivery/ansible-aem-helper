@@ -1,6 +1,6 @@
 ---
 - name: Backup and restore feature
-  hosts: localhost
+  hosts: aem_instance
   roles:
   - role: aem-backup-restore
   vars:
