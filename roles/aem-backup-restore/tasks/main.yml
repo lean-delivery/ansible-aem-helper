@@ -1,0 +1,9 @@
+---
+- name: Run backup process
+  uri:
+    url: '{{ aem_host }}/system/console/jmx/com.adobe.granite%3Atype%3DRepository/op/startBackup/java.lang.String'
+    method: POST
+    name: '{{ aem_username }}'
+    password: '{{ aem_password }}'
+    body:
+      target: '{{ backup_path }}'

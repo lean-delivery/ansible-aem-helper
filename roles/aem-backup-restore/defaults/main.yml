@@ -1,0 +1,14 @@
+---
+
+aem_host: 'http://localhost:{{ aem_port }}'
+aem_port: 4502
+aem_username: admin
+aem_password: admin
+backup_path: '/opt/aem/{{ backup_name }}'
+backup_name: 'backup_{{ ansible_date_time.date }}.zip'
+
+aws_s3_storage: false
+aws_access_key: 'Undefined'
+aws_secret_access_key: 'Undefined'
+aws_s3_bucket: 'bucket'
+aws_s3_path: '/backups/{{ backup_name }}'
