@@ -13,3 +13,8 @@ aws_access_key: 'Undefined'
 aws_secret_access_key: 'Undefined'
 aws_s3_bucket: 'bucket'
 aws_s3_path: '/backups/{{ backup_name }}'
+
+azure_blob_storage: false
+azure_resource_group: 'epm-ldi'
+azure_storage_account: 'storage_name'
+container: 'backups'
