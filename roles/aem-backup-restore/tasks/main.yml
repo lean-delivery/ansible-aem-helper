@@ -25,13 +25,15 @@
   when: aws_s3_storage
 
 - name: Install pip
-  package:
+  apt:
     name: python-pip
     state: present
+  become: true
 
 - name: Install azure cli
   pip:
-    name: azure
+    name: 'ansible[azure]'
+    executable: pip
 
 - name: Put archive into Azure blog storage
   azure_rm_storageblob:
