@@ -1,4 +1,5 @@
-#1 Backup example with AWS S3 storage
+#### #1 Backup example with AWS S3 storage
+```yml
 ---
 - name: Backup and restore feature
   hosts: aem_instance
@@ -11,7 +12,10 @@
     aws_s3_path: /backups/archive.zip
     aws_access_key: 'Sample'
     aws_secret_access_key: 'Sample'
-#2 Backup example with Azure blob storage
+```
+
+### #2 Backup example with Azure blob storage
+```yml
 ---
 - name: Backup and restore feature
   hosts: aem_instance
@@ -29,3 +33,4 @@
     AZURE_CLIENT_ID: 'xxxx'
     AZURE_SECRET: 'xxxx'
     AZURE_TENANT: 'xxxx'
+```
