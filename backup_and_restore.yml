@@ -4,4 +4,4 @@
   roles:
   - role: aem-backup-restore
   vars:
-    aem_host: 'http://52.58.210.12'
+    aem_host: 'http://localhost'

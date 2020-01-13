@@ -13,3 +13,13 @@
   until: stat_result.stat.exists
   retries: 300
   delay: 20
+
+- name: Put archive into S3 Bucket
+  aws_s3:
+    bucket: '{{ aws_s3_bucket }}'
+    object: '{{ aws_s3_path }}'
+    src: '{{ backup_path }}'
+    mode: put
+    aws_access_key: '{{ aws_access_key }}'
+    aws_secret_key: '{{ aws_secret_access_key }}'
+  when: aws_s3_storage
