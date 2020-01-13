@@ -1,7 +1,8 @@
 ---
 
-aem_host: 'http://localhost:{{ aem_port }}'
+aem_host: 'http://localhost'
 aem_port: 4502
+aem_url: '{{ aem_host }}:{{ aem_port }}'
 aem_username: admin
 aem_password: admin
 backup_path: '/opt/aem/{{ backup_name }}'

@@ -1,0 +1,7 @@
+---
+- name: Backup and restore feature
+  hosts: localhost
+  roles:
+  - role: aem-backup-restore
+  vars:
+    aem_host: 'http://52.58.210.12'
