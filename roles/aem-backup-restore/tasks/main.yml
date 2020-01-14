@@ -45,3 +45,11 @@
     blob: '{{ backup_name }}'
     src: '{{ backup_path }}'
     state: present
+  when: azure_blob_storage
+
+- name: Put archive into SFTP server
+  net_put:
+    src: '{{ backup_path }}'
+    protocol: sftp
+    dest: '{{ sftp_dest }}'
+  when: sftp_enabled

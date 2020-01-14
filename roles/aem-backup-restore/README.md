@@ -40,7 +40,8 @@ AEM instance password. By default is admin
 Where your backup will be placed. By default is /opt/aem/your_archive.zip
 - `backup_name`
 Name of your backup. By default is backup_year-month-day.zip
-
+------------
+**AWS S3 Configuration**
 - `aws_s3_storage`
 Use AWS S3 storage or not. By default is false.
 - `aws_access_key`
@@ -52,6 +53,7 @@ Name of your S3 Bucket. ***Requirement if your specify aws_s3_storage as true (!
 - `aws_s3_path`
 Path inside your S3 Bucket. By default is /backups/archive.zip ***Requirement if your specify aws_s3_storage as true (!)***
 ------------
+**Azure blob storage configuration**
 - `azure_blob_storage`
 Use Azure blob storage or not. By default is false.
 - `azure_resource_group`
@@ -60,6 +62,12 @@ Resource group inside Azure. ***Requirement if your specify azure_blob_storage a
 Azure storage account. ***Requirement if your specify azure_blob_storage as true (!)***
 - `azure_container`
 Azure container. ***Requirement if your specify azure_blob_storage as true (!)***
+------------
+**SFTP Configuration**
+- `sftp_enabled`
+Use SFTP storage or not. By default is false.
+- `sftp_dest`
+SFTP destination where put archive. ***Requirement if your specify sftp_enabled as true (!)***
 
 ## Dependencies
 ------------
