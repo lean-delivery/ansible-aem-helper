@@ -63,11 +63,15 @@ Azure storage account. ***Requirement if your specify azure_blob_storage as true
 - `azure_container`
 Azure container. ***Requirement if your specify azure_blob_storage as true (!)***
 ------------
-**SFTP Configuration**
-- `sftp_enabled`
+**FTPS Configuration**
+- `ftps_enabled`
 Use SFTP storage or not. By default is false.
-- `sftp_dest`
-SFTP destination where put archive. ***Requirement if your specify sftp_enabled as true (!)***
+- `ftps_address`
+FTPS address. ***Requirement if your specify ftps_enabled as true (!)***
+- `ftps_username`
+FTPS username. ***Requirement if your specify ftps_enabled as true (!)***
+- `ftps_password`
+FTPS password. ***Requirement if your specify ftps_enabled as true (!)***
 
 ## Dependencies
 ------------

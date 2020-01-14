@@ -26,7 +26,9 @@
 
 - name: Install pip
   apt:
-    name: python3-pip
+    name: 
+    - python3-pip
+    - lftp
     state: present
   become: true
 
@@ -48,8 +50,5 @@
   when: azure_blob_storage
 
 - name: Put archive into SFTP server
-  net_put:
-    src: '{{ backup_path }}'
-    protocol: sftp
-    dest: '{{ sftp_dest }}'
+  script: 'ftps.sh {{ ftps_username }} {{ ftps_password }} {{ ftps_address }} {{ backup_path }}'
   when: sftp_enabled
