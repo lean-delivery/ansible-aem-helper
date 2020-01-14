@@ -51,7 +51,7 @@ Secret access key for access AWS resources through AWS CLI. ***Requirement if yo
 Name of your S3 Bucket. ***Requirement if your specify aws_s3_storage as true (!)***
 - `aws_s3_path`
 Path inside your S3 Bucket. By default is /backups/archive.zip ***Requirement if your specify aws_s3_storage as true (!)***
-
+------------
 - `azure_blob_storage`
 Use Azure blob storage or not. By default is false.
 - `azure_resource_group`
@@ -66,10 +66,10 @@ Azure container. ***Requirement if your specify azure_blob_storage as true (!)**
 
 
 - ***When use azure_blob_storage, you must specify next environment variables (example below):***
-    AZURE_SUBSCRIPTION_ID: 'xxxx'
-    AZURE_CLIENT_ID: 'xxxx'
-    AZURE_SECRET: 'xxxx'
-    AZURE_TENANT: 'xxxx'
+    - AZURE_SUBSCRIPTION_ID: 'xxxx'
+    - AZURE_CLIENT_ID: 'xxxx'
+    - AZURE_SECRET: 'xxxx'
+    - AZURE_TENANT: 'xxxx'
 
 
 Example Playbook
