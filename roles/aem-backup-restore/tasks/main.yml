@@ -24,7 +24,7 @@
     aws_secret_key: '{{ aws_secret_access_key }}'
   when: aws_s3_storage
 
-- name: Install pip
+- name: Install packages
   apt:
     name: 
     - python3-pip
@@ -51,4 +51,4 @@
 
 - name: Put archive into SFTP server
   script: 'ftps.sh {{ ftps_username }} {{ ftps_password }} {{ ftps_address }} {{ backup_path }}'
-  when: sftp_enabled
+  when: ftps_enabled
