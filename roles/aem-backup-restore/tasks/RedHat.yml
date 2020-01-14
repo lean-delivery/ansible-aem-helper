@@ -1,0 +1,9 @@
+---
+- name: Install packages
+  yum:
+    name: 
+    - python3-pip
+    - lftp
+    state: present
+    update_cache: yes
+  become: true

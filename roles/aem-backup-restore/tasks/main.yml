@@ -1,4 +1,12 @@
 ---
+- name: Installing filebeat on current OS
+  include_tasks: '{{ distrib_tasks }}'
+  with_first_found:
+    - '{{ ansible_os_family }}.yml'
+    - not-supported.yml
+  loop_control:
+    loop_var: distrib_tasks
+
 - name: Run backup process
   uri:
     url: '{{ aem_url }}/system/console/jmx/com.adobe.granite:type=Repository/op/startBackup/java.lang.String?target={{ backup_path }}'
@@ -23,14 +31,6 @@
     aws_access_key: '{{ aws_access_key }}'
     aws_secret_key: '{{ aws_secret_access_key }}'
   when: aws_s3_storage
-
-- name: Install packages
-  apt:
-    name: 
-    - python3-pip
-    - lftp
-    state: present
-  become: true
 
 - name: Install azure cli
   pip:
