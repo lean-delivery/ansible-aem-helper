@@ -52,3 +52,6 @@
 - name: Put archive into SFTP server
   script: 'ftps.sh {{ ftps_username }} {{ ftps_password }} {{ ftps_address }} {{ backup_path }}'
   when: ftps_enabled
+  register: result
+  changed_when: '"Successful" in result.stdout'
+  become: true
