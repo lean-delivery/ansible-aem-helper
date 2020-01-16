@@ -6,12 +6,5 @@
   vars:
     aem_host: 'http://localhost'
     aws_s3_storage: false
-    azure_blob_storage: true
-    azure_resource_group: 'epm-ldi'
-    azure_storage_account: 'storage_name'
-    azure_container: 'backups'
-  environment:
-    AZURE_SUBSCRIPTION_ID: 'xxxx'
-    AZURE_CLIENT_ID: 'xxxx'
-    AZURE_SECRET: 'xxxx'
-    AZURE_TENANT: 'xxxx'
+    azure_blob_storage: false
+    ftps_enabled: false
