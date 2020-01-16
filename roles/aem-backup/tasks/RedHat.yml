@@ -2,14 +2,9 @@
 - name: Install packages
   yum:
     name: 
+    - epel-release
     - python3-pip
-    - python3-dev
-    - build-essential
-    - libssl-dev
-    - libffi-dev
-    - libxml2-dev
-    - libxslt1-dev
-    - zlib1g-dev
+    - python3-devel
     - lftp
     state: present
     update_cache: yes
