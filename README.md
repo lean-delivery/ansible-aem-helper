@@ -20,14 +20,12 @@ Requirements
 ------------
 
 
-- Minimal Version of the ansible for installation: 2.9
+- Minimal Version of the ansible for installation: 2.8
  - **Supported OS**:
    - CentOS
-     - 7,8
+     - 7
    - Ubuntu
      - 16.04, 18.04
-   - Debian
-     - 8, 9
 
 
 License
