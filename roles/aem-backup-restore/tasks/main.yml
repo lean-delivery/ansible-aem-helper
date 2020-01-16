@@ -1,5 +1,5 @@
 ---
-- name: Installing filebeat on current OS
+- name: Installing dependencies on current OS
   include_tasks: '{{ distrib_tasks }}'
   with_first_found:
     - '{{ ansible_os_family }}.yml'
