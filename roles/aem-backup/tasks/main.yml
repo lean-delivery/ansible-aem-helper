@@ -13,6 +13,7 @@
     method: POST
     user: '{{ aem_username }}'
     password: '{{ aem_password }}'
+    force_basic_auth: yes
 
 - name: Check until backup is finished
   stat:
@@ -37,6 +38,7 @@
     name: 'ansible[azure]'
     executable: pip3
   become: true
+  when: azure_blob_storage
 
 - name: Put archive into Azure blog storage
   azure_rm_storageblob:
