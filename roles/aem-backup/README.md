@@ -94,7 +94,7 @@ Example Playbook
 - name: Backup and restore feature
   hosts: aem_instance
   roles:
-  - role: aem-backup-restore
+  - role: aem-backup
   vars:
     aem_host: 'http://localhost'
     aws_s3_storage: true
@@ -110,7 +110,7 @@ Example Playbook
 - name: Backup and restore feature
   hosts: aem_instance
   roles:
-  - role: aem-backup-restore
+  - role: aem-backup
   vars:
     aem_host: 'http://localhost'
     aws_s3_storage: false
