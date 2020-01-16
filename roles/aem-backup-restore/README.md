@@ -18,7 +18,7 @@ Role tasks
 - Run backup using CURl and put archive to directory
 - (optional) Put archive in AWS S3 Bucket
 - (optional) Put archive in Azure blob storage
-- (optional) Put archive in SFTP
+- (optional) Put archive in FTPS
 
 
 ## Role Variables
