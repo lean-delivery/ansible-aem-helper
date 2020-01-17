@@ -1,4 +1,4 @@
-AEM Backup\Restore role
+AEM Backup role
 =========
 
 
