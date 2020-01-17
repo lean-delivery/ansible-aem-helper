@@ -6,7 +6,7 @@ AEM Backup role
 
 
 This role:
-  - Make backup AEM instance with storage support such as AWS S3, Azure blob storage and SFTP
+  - Make backup AEM instance with storage support such as AWS S3, Azure blob storage and FTPS
 
 
 
