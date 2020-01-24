@@ -1,0 +1,11 @@
+---
+- name: Install packages
+  yum:
+    name: 
+    - epel-release
+    - python3-pip
+    - python3-devel
+    - lftp
+    state: present
+    update_cache: yes
+  become: true

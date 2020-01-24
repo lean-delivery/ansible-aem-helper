@@ -1,0 +1,59 @@
+---
+- name: Installing dependencies on current OS
+  include_tasks: '{{ distrib_tasks }}'
+  with_first_found:
+    - '{{ ansible_os_family }}.yml'
+    - not-supported.yml
+  loop_control:
+    loop_var: distrib_tasks
+
+- name: Run backup process
+  uri:
+    url: '{{ aem_url }}/system/console/jmx/com.adobe.granite:type=Repository/op/startBackup/java.lang.String?target={{ backup_path }}'
+    method: POST
+    user: '{{ aem_username }}'
+    password: '{{ aem_password }}'
+    force_basic_auth: yes
+
+- name: Check until backup is finished
+  stat:
+    path: '{{ backup_path }}'
+  register: stat_result
+  until: stat_result.stat.exists
+  retries: 300
+  delay: 20
+
+- name: Put archive into S3 Bucket
+  aws_s3:
+    bucket: '{{ aws_s3_bucket }}'
+    object: '{{ aws_s3_path }}'
+    src: '{{ backup_path }}'
+    mode: put
+    aws_access_key: '{{ aws_access_key }}'
+    aws_secret_key: '{{ aws_secret_access_key }}'
+  when: aws_s3_storage
+
+- name: Install azure cli
+  pip:
+    name: 'ansible[azure]'
+    executable: pip3
+  become: true
+  when: azure_blob_storage
+
+- name: Put archive into Azure blog storage
+  azure_rm_storageblob:
+    auth_source: env
+    resource_group: '{{ azure_resource_group }}'
+    storage_account_name: '{{ azure_storage_account }}'
+    container: '{{ azure_container }}'
+    blob: '{{ backup_name }}'
+    src: '{{ backup_path }}'
+    state: present
+  when: azure_blob_storage
+
+- name: Put archive into SFTP server
+  script: 'ftps.sh {{ ftps_username }} {{ ftps_password }} {{ ftps_address }} {{ backup_path }}'
+  when: ftps_enabled
+  register: result
+  changed_when: '"Successful" in result.stdout'
+  become: true

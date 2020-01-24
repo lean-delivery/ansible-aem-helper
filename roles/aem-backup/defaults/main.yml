@@ -1,0 +1,25 @@
+---
+
+aem_host: 'http://localhost'
+aem_port: 4502
+aem_url: '{{ aem_host }}:{{ aem_port }}'
+aem_username: admin
+aem_password: admin
+backup_path: '/opt/aem/{{ backup_name }}'
+backup_name: 'backup_{{ ansible_date_time.date }}.zip'
+
+aws_s3_storage: false
+aws_access_key: 'Undefined'
+aws_secret_access_key: 'Undefined'
+aws_s3_bucket: 'bucket'
+aws_s3_path: '/backups/{{ backup_name }}'
+
+azure_blob_storage: false
+azure_resource_group: 'epm-ldi'
+azure_storage_account: 'storage_name'
+azure_container: 'backups'
+
+ftps_enabled: false
+ftps_username: admin
+ftps_password: admin
+ftps_address: localhost
